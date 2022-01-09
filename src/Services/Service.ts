@@ -9,4 +9,15 @@ export default class Service {
         const response = await axios.get(`https://opentdb.com/api_count.php?category=${id}`)
         return response
     }
+    static async getQuestions (amount: string, category: string, difficulty: string, qtype: string) {
+        const response = await axios.get(`https://opentdb.com/api.php?`, {
+            params: {
+                amount,
+                category,
+                difficulty,
+                type: qtype
+            }
+        })
+        return response 
+    }
 }

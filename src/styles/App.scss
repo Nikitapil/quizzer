@@ -4,9 +4,13 @@
 body {
     font-family: 'Lato', sans-serif;
     min-height: 100%;
+    color: #ffebcd;
+}
+
+main {
     background: url(../assets/background.svg) no-repeat;
     background-size: cover;
-    color: #ffebcd;
+    min-height: 100vh;
 }
 
 .container {

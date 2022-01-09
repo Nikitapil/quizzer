@@ -1,4 +1,8 @@
+import { QuestionAction, QuestionActionsTypes } from './../types/questionTypes';
+import { IQuestion } from '../types/questionTypes';
 import { MainActions, MainActionTypes, IOption, IQuestionCount } from './../types/mainTypes';
+
+//Main actions
 
 export const setDifficulty = (payload: string): MainActions => {
     return {
@@ -14,7 +18,7 @@ export const setType= (payload: string): MainActions => {
     }
 }
 
-export const setCategories= (payload: number): MainActions => {
+export const setCategories= (payload: string): MainActions => {
     return {
         type: MainActionTypes.SET_CATEGORIES,
         payload
@@ -61,3 +65,21 @@ export const fetchCategories= ()  => {
     }
 }
 
+// QuestionActions
+
+export const loadQuestions = (payload: IQuestion[]): QuestionAction => {
+    return {
+        type: QuestionActionsTypes.LOAD_QUESTIONS,
+        payload
+    }
+}
+
+export const fetchQuestions= (amount: string, category: string, difficulty: string, qtype: string)  => {
+    return {
+        type: QuestionActionsTypes.FETCH_QUESTIONS,
+        amount,
+        category,
+        difficulty,
+        qtype
+    }
+}

@@ -1,9 +1,9 @@
-import { IMainState, IOption, MainActionTypes } from "./../types/mainTypes";
+import { IMainState, MainActionTypes } from "./../types/mainTypes";
 import { MainActions } from "../types/mainTypes";
 
 const initialState: IMainState = {
   categories: [],
-  questionCategory: 0,
+  questionCategory: '0',
   questionDificulty: "",
   questionType: "",
   questionsAmount: '10',

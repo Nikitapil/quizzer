@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const MainPage: FC = () => {
     const dispatch = useDispatch()
-    const {categories} = useTypedSelector(state => state.main)
+    const {categories, categoriesLoading} = useTypedSelector(state => state.main)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export const MainPage: FC = () => {
                 <SelectSettings id= 'questionDificulty' label='Select Difficulty' options = {difficulties} action={setDifficulty}/>
                 <SelectSettings id= 'questionType' label='Select question Type' options = {questionTypesArray} action={setType} />
                 <InputSettings/>
-                <button type='submit' className='settings-form__submit'>Get Started</button>
+                <button disabled ={categoriesLoading} type='submit' className='settings-form__submit'>Get Started</button>
             </form>
         </main>
     )

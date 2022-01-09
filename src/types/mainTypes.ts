@@ -12,7 +12,7 @@ export interface IQuestionCount {
 
 export interface IMainState {
   categories: IOption[];
-  questionCategory: number;
+  questionCategory: string;
   questionDificulty: string;
   questionType: string;
   questionsAmount: string;
@@ -44,7 +44,7 @@ export enum MainActionTypes {
 
 interface ISetCategoriesActions {
   type: MainActionTypes.SET_CATEGORIES;
-  payload: number;
+  payload: string;
 }
 
 interface ISetDifficultyActions {

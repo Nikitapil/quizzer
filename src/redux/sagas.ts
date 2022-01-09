@@ -1,4 +1,5 @@
-import { loadCategories, setCategoriesError, setQuestionAmount, showCategoriesloading } from "./actionCreators";
+import { QuestionActionsTypes } from './../types/questionTypes';
+import { loadCategories, loadQuestions, setCategoriesError, setQuestionAmount, showCategoriesloading } from "./actionCreators";
 import { MainActionTypes, ResponseGenerator } from "./../types/mainTypes";
 import { takeEvery, put, call } from "redux-saga/effects";
 import Service from "../Services/Service";
@@ -31,8 +32,17 @@ function* getQuestionCountSaga({payload}: any) {
     }
 }
 
+function* getQuestionsSaga({amount,
+    category,
+    difficulty,
+    qtype}: any) {
+        const response: ResponseGenerator = yield call(() => Service.getQuestions(amount, category, difficulty, qtype));
+        yield put(loadQuestions(response.data.results))
+    }
+
 
 export function* sagaWatcher() {
   yield takeEvery(MainActionTypes.FETCH_CATEGORIES, getCategoriesSaga);
   yield takeEvery(MainActionTypes.SET_CATEGORIES, getQuestionCountSaga);
+  yield takeEvery(QuestionActionsTypes.FETCH_QUESTIONS, getQuestionsSaga);
 }
