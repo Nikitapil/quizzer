@@ -1,14 +1,22 @@
 import React, { FC, useCallback, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { incrementScore } from "../redux/actionCreators";
 import { IQuestion } from "../types/questionTypes";
 import { decodeHTML } from "../utils/decodeHtml";
 
 interface SingleQuestionProps {
   question: IQuestion;
-  nextQuestion: () => void
+  nextQuestion: () => void;
 }
 
-export const SingleQuestion: FC<SingleQuestionProps> = ({ question, nextQuestion }) => {
-    const [answered, setAnswered] = useState(false)
+export const SingleQuestion: FC<SingleQuestionProps> = ({
+  question,
+  nextQuestion,
+}) => {
+  const [answered, setAnswered] = useState(false);
+  const dispatch = useDispatch();
+  const { score } = useTypedSelector((state) => state.question);
 
   const answers = useMemo(() => {
     return [...question.incorrect_answers, question.correct_answer].sort(
@@ -16,26 +24,28 @@ export const SingleQuestion: FC<SingleQuestionProps> = ({ question, nextQuestion
     );
   }, [question]);
 
-  const getClass = useCallback((answer:string) => {
-    if (!answered) {
-        return
-    }
-    else if (answer === question.correct_answer) {
-        return 'correct'
-    }
-    else {
-        return 'incorrect'
-    }
-  }, [answered])
-
+  const getClass = useCallback(
+    (answer: string) => {
+      if (!answered) {
+        return;
+      } else if (answer === question.correct_answer) {
+        return "correct";
+      } else {
+        return "incorrect";
+      }
+    },
+    [answered]
+  );
 
   const checkAnswer = (answer: string) => {
-    setAnswered(true)
+    setAnswered(true);
+    if (answer === question.correct_answer) {
+      dispatch(incrementScore(score + 1));
+    }
     setTimeout(() => {
-        nextQuestion()
-    }, 2500)
+      nextQuestion();
+    }, 2500);
   };
-  
 
   return (
     <div className="single-question">
@@ -50,7 +60,7 @@ export const SingleQuestion: FC<SingleQuestionProps> = ({ question, nextQuestion
               className={`single-question__anwers-item ${getClass(answer)}`}
               key={answer}
             >
-              {answer}
+              {decodeHTML(answer)}
             </li>
           );
         })}

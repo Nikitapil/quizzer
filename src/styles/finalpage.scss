@@ -1,0 +1,25 @@
+.final-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.final-page__title {
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+}
+.final-page__btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.final-page__btn {
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+}

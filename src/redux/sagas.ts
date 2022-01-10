@@ -1,5 +1,5 @@
 import { QuestionActionsTypes } from './../types/questionTypes';
-import { loadCategories, loadQuestions, setCategoriesError, setQuestionAmount, showCategoriesloading } from "./actionCreators";
+import { loadCategories, loadQuestions, setCategoriesError, setQuestionAmount, setQuestionError, showCategoriesloading, showQuestionLoader } from "./actionCreators";
 import { MainActionTypes, ResponseGenerator } from "./../types/mainTypes";
 import { takeEvery, put, call } from "redux-saga/effects";
 import Service from "../Services/Service";
@@ -36,8 +36,17 @@ function* getQuestionsSaga({amount,
     category,
     difficulty,
     qtype}: any) {
-        const response: ResponseGenerator = yield call(() => Service.getQuestions(amount, category, difficulty, qtype));
-        yield put(loadQuestions(response.data.results))
+        try {
+          yield put(showQuestionLoader(true))
+          const response: ResponseGenerator = yield call(() => Service.getQuestions(amount, category, difficulty, qtype));
+          yield put(loadQuestions(response.data.results))
+        } catch (error) {
+          yield put(setQuestionError())
+        }
+        finally {
+           yield put(showQuestionLoader(false))
+        }
+
     }
 
 

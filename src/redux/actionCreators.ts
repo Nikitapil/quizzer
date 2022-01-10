@@ -74,6 +74,25 @@ export const loadQuestions = (payload: IQuestion[]): QuestionAction => {
     }
 }
 
+export const showQuestionLoader = (payload: boolean): QuestionAction => {
+    return {
+        type: QuestionActionsTypes.SHOW_QUESTION_LOADER,
+        payload
+    }
+}
+
+export const setQuestionError = (): QuestionAction => {
+    return {
+        type: QuestionActionsTypes.SET_QUESTION_ERROR,
+    }
+}
+export const incrementScore = (payload:number): QuestionAction => {
+    return {
+        type: QuestionActionsTypes.SCORE_INCREMENT,
+        payload
+    }
+}
+
 export const fetchQuestions= (amount: string, category: string, difficulty: string, qtype: string)  => {
     return {
         type: QuestionActionsTypes.FETCH_QUESTIONS,
