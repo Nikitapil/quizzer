@@ -13,7 +13,7 @@ export const Profile = () => {
                 <li><NavLink to = '/' className={({ isActive }) =>
                   isActive ? "nav-profile__btn nav-profile__btn-active" : "nav-profile__btn "
                 }>Quizes</NavLink></li>
-                <li><NavLink to='/' className={({ isActive }) =>
+                <li><NavLink to='/profile/create' className={({ isActive }) =>
                   isActive ? "nav-profile__btn nav-profile__btn-active without-dash" : "nav-profile__btn without-dash"
                 }>Create quiz</NavLink></li>
             </ul>

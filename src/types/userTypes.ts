@@ -15,6 +15,10 @@ export interface IErrorMessage {
     code: string
 }
 
+export interface IInfoData {
+    name: string
+}
+
 
 export interface IAuthData {
     email: string,

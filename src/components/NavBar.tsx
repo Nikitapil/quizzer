@@ -9,6 +9,7 @@ import '../styles/navbar.scss'
 import { SignInModal } from "./SignInModal";
 import { SignUpModal } from "./SignUpModal";
 import { ModalFrame } from "./UI/ModalFrame";
+
 export const NavBar: FC = () => {
     const [isSignUpModalOpened, setIsSignUpModalOpened] = useState(false)
     const [isSignInModalOpened, setIsSignInModalOpened] = useState(false)
@@ -33,7 +34,7 @@ export const NavBar: FC = () => {
 
     useEffect(() => {
       dispatch(fetchUserName())
-    }, [userId])
+    }, [userId, userName])
 
   return (
     <header className="header container">

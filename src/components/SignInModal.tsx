@@ -3,7 +3,6 @@ import { useAuth } from '../hooks/useAuth'
 import { useError } from '../hooks/useError'
 import { errorMessages } from '../mock/errorMessages'
 import AuthService from '../Services/AuthService'
-import { IErrorMessage } from '../types/userTypes'
 
 interface SignInModalProps {
     closeModal: () => void

@@ -36,8 +36,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
+dl, dt, dd, ol, ul, li, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
@@ -198,12 +197,6 @@ form {
 /**
  * Define consistent border, margin, and padding.
  */
-
-fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
-}
 
 /**
  * 1. Correct color not being inherited in IE 6/7/8/9.
@@ -373,12 +366,6 @@ textarea {
 
 img {
     vertical-align: middle;
-}
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
 }
 
 textarea {

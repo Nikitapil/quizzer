@@ -13,6 +13,7 @@ import { getUserId } from "./redux/actionCreators";
 import { useDispatch } from "react-redux";
 import { Profile } from "./components/pages/Profile";
 import { Info } from "./components/pages/Info";
+import { CreateQuiz } from "./components/pages/CreateQuiz";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/finalpage" element={<FinalPage />} />
         <Route path="/profile" element={<Profile />}>
           <Route path="info" element={<Info />} />
+          <Route path="create" element={<CreateQuiz />} />
         </Route>
       </Routes>
     </div>
