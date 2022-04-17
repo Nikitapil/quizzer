@@ -1,8 +1,10 @@
 import { QuestionActionsTypes } from './../types/questionTypes';
-import { loadCategories, loadQuestions, setCategoriesError, setQuestionAmount, setQuestionError, showCategoriesloading, showQuestionLoader } from "./actionCreators";
+import { loadCategories, loadQuestions, setCategoriesError, setQuestionAmount, setQuestionError, setUserName, showCategoriesloading, showQuestionLoader } from "./actionCreators";
 import { MainActionTypes, ResponseGenerator } from "./../types/mainTypes";
 import { takeEvery, put, call } from "redux-saga/effects";
 import Service from "../Services/Service";
+import AuthService from '../Services/AuthService';
+import { UserActionstypes } from '../types/userTypes';
 
 function* getCategoriesSaga() {
   try {
@@ -32,6 +34,14 @@ function* getQuestionCountSaga({payload}: any) {
     }
 }
 
+function* getUserName() {
+  try {
+    const userName: string = yield call(AuthService.getName)
+    yield put(setUserName(userName))
+  } catch (error) {
+    yield put(setUserName(''))
+  }
+}
 function* getQuestionsSaga({amount,
     category,
     difficulty,
@@ -54,4 +64,5 @@ export function* sagaWatcher() {
   yield takeEvery(MainActionTypes.FETCH_CATEGORIES, getCategoriesSaga);
   yield takeEvery(MainActionTypes.SET_CATEGORIES, getQuestionCountSaga);
   yield takeEvery(QuestionActionsTypes.FETCH_QUESTIONS, getQuestionsSaga);
+  yield takeEvery(UserActionstypes.FETCH_USERNAME, getUserName);
 }

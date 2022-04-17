@@ -1,0 +1,33 @@
+.profile-container {
+    padding: 70px 20px 20px 20px !important;
+}
+.profile__nav {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    justify-content: center;
+}
+.nav-profile__btn {
+    background: none;
+    border: none;
+    color: #ffebcd;
+    transition: 0.4s;
+    text-decoration: none;
+    position: relative;
+    padding-right: 8px;
+    &:hover {
+        color: #ff0000;
+    }
+    &:not(.without-dash)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background-color: #ffebcd;
+    }
+}
+.nav-profile__btn-active {
+    color: #0eff01;
+}

@@ -3,6 +3,8 @@
     top: 0;
     left: 0;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .nav-bar__links {
     display: flex;
@@ -15,7 +17,11 @@
     border: none;
     color: #ffebcd;
     transition: 0.4s;
+    text-decoration: none;
     &:hover {
         color: #ff0000;
     }
+}
+.nav-bar__btn-active {
+    color: #0eff01;
 }

@@ -117,3 +117,15 @@ export const setAuthError = (payload: string) => {
         payload
     }
 }
+
+export const setUserName = (payload: string) => {
+    return {
+        type: UserActionstypes.SET_USERNAME,
+        payload
+    }
+}
+export const fetchUserName = () => {
+    return {
+        type: UserActionstypes.FETCH_USERNAME,
+    }
+}
