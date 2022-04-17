@@ -1,0 +1,21 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.nav-bar__links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav-bar__btn {
+    background: none;
+    border: none;
+    color: #ffebcd;
+    transition: 0.4s;
+    &:hover {
+        color: #ff0000;
+    }
+}

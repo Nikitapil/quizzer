@@ -1,0 +1,12 @@
+import { FC } from 'react'
+import '../../styles/errormessage.scss'
+
+interface  ErrorMessageProps {
+    message: string
+}
+
+export const ErrorMessage:FC<ErrorMessageProps> = ({message}) => {
+  return (
+    <div className='error-message'>{message}</div>
+  )
+}

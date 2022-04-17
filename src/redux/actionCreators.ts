@@ -1,6 +1,7 @@
 import { QuestionAction, QuestionActionsTypes } from './../types/questionTypes';
 import { IQuestion } from '../types/questionTypes';
 import { MainActions, MainActionTypes, IOption, IQuestionCount } from './../types/mainTypes';
+import { UserActionstypes } from '../types/userTypes';
 
 //Main actions
 
@@ -100,5 +101,19 @@ export const fetchQuestions= (amount: string, category: string, difficulty: stri
         category,
         difficulty,
         qtype
+    }
+}
+
+export const getUserId = (payload: string|null) => {
+    return {
+        type: UserActionstypes.GET_USER_ID,
+        payload
+    }
+}
+
+export const setAuthError = (payload: string) => {
+    return {
+        type: UserActionstypes.SET_AUTH_ERROR,
+        payload
     }
 }
