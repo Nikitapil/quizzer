@@ -1,7 +1,5 @@
-import React from 'react'
 import { NavLink, Outlet,  } from 'react-router-dom'
 import '../../styles/profile.scss'
-import { MainPage } from './MainPage'
 export const Profile = () => {
   return (
     <main className='container profile-container'>
@@ -10,7 +8,7 @@ export const Profile = () => {
                 <li><NavLink to='/profile/info' className={({ isActive }) =>
                   isActive ? "nav-profile__btn nav-profile__btn-active" : "nav-profile__btn "
                 }>Info</NavLink></li>
-                <li><NavLink to = '/' className={({ isActive }) =>
+                <li><NavLink to = '/profile/userquizes' className={({ isActive }) =>
                   isActive ? "nav-profile__btn nav-profile__btn-active" : "nav-profile__btn "
                 }>Quizes</NavLink></li>
                 <li><NavLink to='/profile/create' className={({ isActive }) =>

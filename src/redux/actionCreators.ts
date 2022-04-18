@@ -2,6 +2,7 @@ import { QuestionAction, QuestionActionsTypes } from './../types/questionTypes';
 import { IQuestion } from '../types/questionTypes';
 import { MainActions, MainActionTypes, IOption, IQuestionCount } from './../types/mainTypes';
 import { UserActionstypes } from '../types/userTypes';
+import { IQuiz, QuizActionTypes } from '../types/quizTypes';
 
 //Main actions
 
@@ -127,5 +128,32 @@ export const setUserName = (payload: string) => {
 export const fetchUserName = () => {
     return {
         type: UserActionstypes.FETCH_USERNAME,
+    }
+}
+
+export const loadUserQuizes = (payload: IQuiz[]) => {
+    return {
+        type: QuizActionTypes.LOAD_USER_QUIZES,
+        payload
+    }
+}
+
+export const fetchUserQuizes = () => {
+    return {
+        type: QuizActionTypes.FETCH_USER_QUIZES
+    }
+}
+
+export const setIsQuizLoading = (payload: boolean) => {
+    return {
+        type: QuizActionTypes.SET_IS_QUIZES_LOADING,
+        payload
+    }
+}
+
+export const fetchCustomQuizActin = (payload: string) => {
+    return {
+        type: QuizActionTypes.FETCH_CUSTOM_QUIZ_QUESTIONS,
+        payload
     }
 }

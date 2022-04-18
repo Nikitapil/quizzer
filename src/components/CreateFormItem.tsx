@@ -17,9 +17,9 @@ export const CreateFormItem:FC<ICreateFormItem> = ({question, rightAnswer, wrong
     <fieldset className='question-field'>
         <legend>Question #{index +1}</legend>
         <label htmlFor="question">Question:</label>
-        <input id='question' type="text" value={question} onChange={(e) => onChangeQuestion(e.target.value)} />
+        <input autoComplete="off" required id='question' type="text" value={question} onChange={(e) => onChangeQuestion(e.target.value)} />
         <label htmlFor="right-answer">Right Answer:</label>
-        <input id='right-answer' type="text" value={rightAnswer} onChange={(e) => onChangeRightAnswer(e.target.value)} />
+        <input autoComplete="off" required id='right-answer' type="text" value={rightAnswer} onChange={(e) => onChangeRightAnswer(e.target.value)} />
         {wrongAnswers.map((answ, Windex) => {
             return (
                 <WrongAnswer index={Windex} value={wrongAnswers[Windex]} onChangeValue={(val) => onChangeWrongAnswer(Windex, val)} key={Windex}/>

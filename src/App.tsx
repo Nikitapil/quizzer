@@ -14,12 +14,16 @@ import { useDispatch } from "react-redux";
 import { Profile } from "./components/pages/Profile";
 import { Info } from "./components/pages/Info";
 import { CreateQuiz } from "./components/pages/CreateQuiz";
+import { UserQuizes } from "./components/pages/UserQuizes";
+import { useTypedSelector } from "./hooks/useTypedSelector";
+import { ErrorPage } from "./components/pages/ErrorPage";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
   const dispatch = useDispatch();
+  const {userId} = useTypedSelector((state) => state.user)
   useEffect(() => {
     const uid = user?.uid || null;
     dispatch(getUserId(uid));
@@ -32,10 +36,12 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/questions" element={<QuestionPage />} />
         <Route path="/finalpage" element={<FinalPage />} />
-        <Route path="/profile" element={<Profile />}>
+        {userId && <Route path="/profile" element={<Profile />}>
           <Route path="info" element={<Info />} />
           <Route path="create" element={<CreateQuiz />} />
-        </Route>
+          <Route path="userquizes" element={<UserQuizes />} />
+        </Route>}
+        <Route path="*" element={<ErrorPage isLoading={loading}/>}/>
       </Routes>
     </div>
   );

@@ -41,7 +41,7 @@ export const SignInModal:FC<SignInModalProps> = ({closeModal}) => {
         <input id='password' type="password" placeholder='Enter password' onChange={onInput}/>
         <div className='sign-modal__btns'>
             <button disabled={loading} type='button' onClick={closeModal} className='sign-cancel-btn'>Cancel</button>
-            <button disabled={loading} type='submit' className='sign-submit-btn'>Sign Up</button>
+            <button disabled={loading} type='submit' className='sign-submit-btn'>Sign In</button>
         </div>
     </form>
   )

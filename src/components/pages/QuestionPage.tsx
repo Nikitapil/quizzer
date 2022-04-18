@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
-import { fetchQuestions, incrementScore, loadQuestions } from '../../redux/actionCreators'
+import { fetchCustomQuizActin, fetchQuestions, incrementScore, loadQuestions } from '../../redux/actionCreators'
 import { SingleQuestion } from '../SingleQuestion'
 import '../../styles/question.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Loader } from '../UI/Loader'
 export const QuestionPage:FC = () => {
     const dispatch = useDispatch()
@@ -12,10 +12,17 @@ export const QuestionPage:FC = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const {questionsAmount,questionCategory, questionDificulty, questionType} = useTypedSelector(state => state.main)
     const {questions, questionLoading, score, questionError} = useTypedSelector(state => state.question)
-
+    const {userId} = useTypedSelector((state) => state.user)
+    const location = useLocation();
     useEffect(() => {
-        dispatch(fetchQuestions(questionsAmount, questionCategory, questionDificulty, questionType))
-        dispatch(incrementScore(0))
+        if (location.search) {
+            dispatch(fetchCustomQuizActin(location.search.slice(1)))
+        }
+        else {
+            dispatch(fetchQuestions(questionsAmount, questionCategory, questionDificulty, questionType))
+            dispatch(incrementScore(0))
+        }
+        console.log(location);
     }, [])
 
     const nextQuestion = () => {

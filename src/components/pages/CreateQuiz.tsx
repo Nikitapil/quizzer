@@ -97,7 +97,6 @@ export const CreateQuiz = () => {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      //сделать валидацию
       try {
         CustomQuizService.createQuiz(quizData)
         setQuizData({
@@ -129,7 +128,11 @@ export const CreateQuiz = () => {
     <div className="create-form__wrapper">
       <form className="create-form" onSubmit={submitHandler}>
         <label htmlFor="quiz-name">Quiz name:</label>
-        <input id="quiz-name" type="text" placeholder="Quiz name..." value={quizData.quizeName} onChange={onChangeQuizName} />
+        <input autoComplete="off" required id="quiz-name" type="text" placeholder="Quiz name..." value={quizData.quizeName} onChange={onChangeQuizName} />
+        <div className="create-form__privacy">
+          <label htmlFor="privacy-control">Is Private Quiz?</label>
+          <input id="privacy-control" type="checkbox" />
+        </div>
         {quizData.questions.map((quest, idx) => {
           return (
             <CreateFormItem
