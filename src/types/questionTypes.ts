@@ -14,6 +14,7 @@ export interface IQuestion {
 
 export interface IQuizData {
   quizeName: string,
+  isPrivate: boolean,
   questions: IQuestion[]
 }
 

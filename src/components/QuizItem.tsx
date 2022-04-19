@@ -1,19 +1,29 @@
-import { faLink, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faPlay, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fetchUserQuizes } from "../redux/actionCreators";
+import CustomQuizService from "../Services/CustomQuizService";
 import { IQuiz } from "../types/quizTypes";
 
 interface QuizItemProps {
-    quiz: IQuiz
+    quiz: IQuiz,
+    isUser: boolean
 }
  
-export const QuizItem:FC<QuizItemProps> = ({quiz}) => {
+export const QuizItem:FC<QuizItemProps> = ({quiz, isUser}) => {
     const [isShowLink, setIsShowLink] = useState(false)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const changeLinkState = () => {
         setIsShowLink(!isShowLink)
     }
+
+  const deleteQuiz = async () => {
+    await CustomQuizService.deleteQuiz(quiz.id, quiz.idUserQuiz!)
+    dispatch(fetchUserQuizes())
+  }
 
   return (
     <li className="user-quizes__item">
@@ -30,6 +40,7 @@ export const QuizItem:FC<QuizItemProps> = ({quiz}) => {
           <button className="question-field-add" onClick={changeLinkState}>
             Get link <FontAwesomeIcon icon={faLink} />
           </button>
+          {isUser && <button className="question-field-add" title="Delete" onClick={deleteQuiz}> <FontAwesomeIcon icon={faTrashCan} /></button>}
         </div>
       </div>
     </li>

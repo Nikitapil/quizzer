@@ -10,7 +10,7 @@ body {
 main {
     background: url(../assets/background.svg) no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: calc(100vh - 59px);
 }
 
 .container {

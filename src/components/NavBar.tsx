@@ -16,7 +16,7 @@ export const NavBar: FC = () => {
     const checkAuth =  useAuth()
     const dispatch = useDispatch()
     const {userId, userName} = useTypedSelector(state => state.user)
-  
+    const [isMobileMenuActive, setIsMobileMenuActive] = useState(false)
 
 
     const changeSignUpModalState = () => {
@@ -40,17 +40,21 @@ export const NavBar: FC = () => {
     <header className="header container">
       <h1>Welcome {userName || 'Guest'}</h1>
       <nav className="nav-bar">
-        <ul className="nav-bar__links">
-        <li><NavLink to={'/'} className={({ isActive }) =>
+        <ul className={`nav-bar__links ${isMobileMenuActive && 'nav-active'}`}>
+        <li onClick={() => setIsMobileMenuActive(false) }><NavLink to={'/'} className={({ isActive }) =>
                   isActive ? "nav-bar__btn nav-bar__btn-active" : "nav-bar__btn "
                 }>Main</NavLink></li>
-          {!userId && <li><button onClick={changeSignInModalState} className="nav-bar__btn">Sign in</button></li>}
-          {!userId && <li><button onClick={changeSignUpModalState} className="nav-bar__btn">Sign up</button></li>}
-         {userId && <li><NavLink to={'/profile/info'} className={({ isActive }) =>
+        <li onClick={() => setIsMobileMenuActive(false) }><NavLink to={'/customquizes'} className={({ isActive }) =>
+                  isActive ? "nav-bar__btn nav-bar__btn-active" : "nav-bar__btn "
+                }>Custom quizes</NavLink></li>
+          {!userId && <li onClick={() => setIsMobileMenuActive(false) }><button onClick={changeSignInModalState} className="nav-bar__btn">Sign in</button></li>}
+          {!userId && <li onClick={() => setIsMobileMenuActive(false) }><button onClick={changeSignUpModalState} className="nav-bar__btn">Sign up</button></li>}
+         {userId && <li onClick={() => setIsMobileMenuActive(false) }><NavLink to={'/profile/info'} className={({ isActive }) =>
                   isActive ? "nav-bar__btn nav-bar__btn-active" : "nav-bar__btn "
                 }>Profile</NavLink></li>}
-         {userId && <li><button className="nav-bar__btn" onClick={logout}>Sign out</button></li>}
+         {userId && <li onClick={() => setIsMobileMenuActive(false) }><button className="nav-bar__btn" onClick={logout}>Sign out</button></li>}
         </ul>
+        <button className={`mobile-btn ${isMobileMenuActive && 'nav-active'}`} onClick={() => setIsMobileMenuActive(!isMobileMenuActive)}><span></span></button>
       </nav>
       {isSignUpModalOpened && <ModalFrame closeModal={changeSignUpModalState} title="Sign Up" children={<SignUpModal closeModal={changeSignUpModalState}/>}></ModalFrame>}
       {isSignInModalOpened && <ModalFrame closeModal={changeSignInModalState} title="Sign Up" children={<SignInModal closeModal={changeSignInModalState}/>}></ModalFrame>}

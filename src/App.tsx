@@ -17,6 +17,7 @@ import { CreateQuiz } from "./components/pages/CreateQuiz";
 import { UserQuizes } from "./components/pages/UserQuizes";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 import { ErrorPage } from "./components/pages/ErrorPage";
+import { AllQuizes } from "./components/pages/AllQuizes";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/questions" element={<QuestionPage />} />
         <Route path="/finalpage" element={<FinalPage />} />
+        <Route path="/customquizes" element={<AllQuizes />} />
         {userId && <Route path="/profile" element={<Profile />}>
           <Route path="info" element={<Info />} />
           <Route path="create" element={<CreateQuiz />} />

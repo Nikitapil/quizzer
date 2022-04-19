@@ -17,6 +17,7 @@ export const QuestionPage:FC = () => {
     useEffect(() => {
         if (location.search) {
             dispatch(fetchCustomQuizActin(location.search.slice(1)))
+            dispatch(incrementScore(0))
         }
         else {
             dispatch(fetchQuestions(questionsAmount, questionCategory, questionDificulty, questionType))
@@ -30,7 +31,8 @@ export const QuestionPage:FC = () => {
             setCurrentQuestion(currentQuestion+1)
         }
         else {
-            navigate('/finalpage')
+            const url = location.search ? `/finalpage${location.search}` : '/finalpage'
+            navigate(url)
         }
     }
 

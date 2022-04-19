@@ -157,3 +157,16 @@ export const fetchCustomQuizActin = (payload: string) => {
         payload
     }
 }
+
+export const loadAllQuizes = (payload: IQuiz[]) => {
+    return {
+        type: QuizActionTypes.LOAD_ALL_QUIZES,
+        payload
+    }
+}
+
+export const fetchAllQuizes = () => {
+    return {
+        type: QuizActionTypes.FETCH_ALL_QUIZES
+    }
+}

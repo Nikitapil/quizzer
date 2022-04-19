@@ -1,6 +1,4 @@
-.profile-container {
-  padding: 70px 20px 20px 20px !important;
-}
+
 .profile__nav {
   display: flex;
   gap: 10px;
@@ -90,14 +88,16 @@
   padding: 25px 0;
 }
 .question-field {
+  width: 100%;
   padding: 5px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  position: relative;
   legend {
-    color: #0eff01;
+    color: #363a36;
+    font-weight: 700;
   }
-  border-color: #0eff01;
 }
 .question-field-add {
   border: 2px solid #2264ab;
@@ -190,5 +190,58 @@
   input {
     width: 20px;
     height: 20px;
+    cursor: pointer;
+  }
+}
+.user-quizes__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  .user-quizes__title {
+    font-size: 28px;
+  }
+  .user-quizes__link {
+    color: #9af7ff;
+    font-size: 18px;
+  }
+}
+.all-quizes {
+  padding: 20px 20px;
+}
+.all-quizes__notice {
+  margin-bottom: 20px;
+}
+.question-field-del {
+  background: #ffffff;
+  border: none;
+  padding: 2px;
+  color: #2264ab;
+  font-size: 22px;
+  transition: 0.4s;
+  position: absolute;
+  top: -7px;
+  right: 5px;
+  &:hover {
+    font-size: 24px;
+  }
+}
+.wrong-answer__input {
+  width: 100%;
+}
+.wrong-answer__input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wrong-answer__dell {
+  background: #ffffff;
+  border: none;
+  padding: 2px;
+  color: #2264ab;
+  font-size: 16px;
+  transition: 0.4s;
+  &:hover {
+    font-size: 18px;
   }
 }

@@ -5,6 +5,7 @@ import { CreateFormItem } from "../CreateFormItem";
 export const CreateQuiz = () => {
   const [quizData, setQuizData] = useState({
     quizeName: "",
+    isPrivate: false,
     questions: [
       {
         question: "",
@@ -95,12 +96,38 @@ export const CreateQuiz = () => {
     })
   }
 
+  const onChangePrivacy = () => {
+    setQuizData({
+      ...quizData,
+      isPrivate: !quizData.isPrivate
+    })
+  }
+
+  const onDeleteQuestion = (index: number) => {
+    setQuizData({
+      ...quizData,
+      questions:  quizData.questions.filter((_, idx) => idx !== index)
+    })
+  }
+  
+  const onDeleteWrongAnswer = (idx: number, windex: number) => {
+    setQuizData({
+      ...quizData,
+      questions: quizData.questions.map((item, index) => {
+        if (index === idx) {
+          item.incorrect_answers = item.incorrect_answers.filter((_, aindex) => aindex !==windex)
+        }
+        return item
+      } )
+  })}
+
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       try {
         CustomQuizService.createQuiz(quizData)
         setQuizData({
             quizeName: "",
+            isPrivate: false,
             questions: [
               {
                 question: "",
@@ -131,7 +158,7 @@ export const CreateQuiz = () => {
         <input autoComplete="off" required id="quiz-name" type="text" placeholder="Quiz name..." value={quizData.quizeName} onChange={onChangeQuizName} />
         <div className="create-form__privacy">
           <label htmlFor="privacy-control">Is Private Quiz?</label>
-          <input id="privacy-control" type="checkbox" />
+          <input id="privacy-control" type="checkbox" checked={quizData.isPrivate} onChange={onChangePrivacy} />
         </div>
         {quizData.questions.map((quest, idx) => {
           return (
@@ -146,6 +173,8 @@ export const CreateQuiz = () => {
               onChangeQuestion={(val) => onChangeQuestion(idx, val)}
               onAddItem={() => onAddAnswer(idx)}
               onChangeRightAnswer={(val) => onChangeRightAnswer(idx, val)}
+              onDeleteQuestion={onDeleteQuestion}
+              onDeleteWrongAnswer ={(windex) => onDeleteWrongAnswer(idx, windex)}
               key={idx}
             />
           );

@@ -1,5 +1,5 @@
 import { IQuestion, QuestionActionsTypes } from './../types/questionTypes';
-import { changeQuestionAmount, loadCategories, loadQuestions, loadUserQuizes, setCategoriesError, setIsQuizLoading, setQuestionAmount, setQuestionError, setUserName, showCategoriesloading, showQuestionLoader } from "./actionCreators";
+import { changeQuestionAmount, loadAllQuizes, loadCategories, loadQuestions, loadUserQuizes, setCategoriesError, setIsQuizLoading, setQuestionAmount, setQuestionError, setUserName, showCategoriesloading, showQuestionLoader } from "./actionCreators";
 import { MainActionTypes, ResponseGenerator } from "./../types/mainTypes";
 import { takeEvery, put, call } from "redux-saga/effects";
 import Service from "../Services/Service";
@@ -90,6 +90,19 @@ function* fetchUserQuizesSaga() {
   }
 }
 
+function* fetchAllQuizesSsaga() {
+  try {
+    yield put(setIsQuizLoading(true))
+    const response: IQuiz[]  = yield call(CustomQuizService.getAllQuizes);
+    yield put(loadAllQuizes(response))
+  } catch (e) {
+    yield put(loadAllQuizes([]))
+  }
+  finally {
+    yield put(setIsQuizLoading(false))
+  }
+}
+
 export function* sagaWatcher() {
   yield takeEvery(MainActionTypes.FETCH_CATEGORIES, getCategoriesSaga);
   yield takeEvery(MainActionTypes.SET_CATEGORIES, getQuestionCountSaga);
@@ -97,4 +110,5 @@ export function* sagaWatcher() {
   yield takeEvery(UserActionstypes.FETCH_USERNAME, getUserNameSaga);
   yield takeEvery(QuizActionTypes.FETCH_USER_QUIZES, fetchUserQuizesSaga);
   yield takeEvery(QuizActionTypes.FETCH_CUSTOM_QUIZ_QUESTIONS, getCustomQuestionSaga);
+  yield takeEvery(QuizActionTypes.FETCH_ALL_QUIZES, fetchAllQuizesSsaga);
 }
