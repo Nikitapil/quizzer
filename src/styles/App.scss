@@ -1,29 +1,29 @@
-@import './nullstyle.scss';
-@import './fonts.scss';
+@import "./nullstyle.scss";
+@import "./fonts.scss";
 
 body {
-    font-family: 'Lato', sans-serif;
-    min-height: 100%;
-    color: #ffebcd;
+  font-family: "Lato", sans-serif;
+  min-height: 100%;
+  color: #ffebcd;
 }
 
 main {
-    background: url(../assets/background.svg) no-repeat;
-    background-size: cover;
-    min-height: 100vh;
+  background: url(../assets/background.svg) no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - 59px);
 }
 
 .container {
-    max-width: 100%;
-    padding: 20px;
+  max-width: 100%;
+  padding: 20px;
 }
 .error {
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid black;
-    background-color: #ffff00;
-    color: orangered;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: #ffff00;
+  color: orangered;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 5px;
 }

@@ -18,7 +18,7 @@ export interface IMainState {
   questionsAmount: string;
   categoriesLoading: boolean;
   categoriesError: boolean;
-  categoryQuestionCount: IQuestionCount
+  categoryQuestionCount: IQuestionCount;
   [key: string]: any;
 }
 export interface ResponseGenerator {
@@ -39,7 +39,7 @@ export enum MainActionTypes {
   SHOW_CATEGORIES_LOADER = "SHOW_LOADER",
   SET_CATEGORIES_ERROR = "SET_CATEGORIES_ERROR",
   SET_QUESTION_AMOUNT = "SET_QUESTION_AMOUNT",
-  CHANGE_QUESTION_AMOUNT = "CHANGE_QUESTION_AMOUNT"
+  CHANGE_QUESTION_AMOUNT = "CHANGE_QUESTION_AMOUNT",
 }
 
 interface ISetCategoriesActions {
@@ -70,13 +70,13 @@ interface IShowCategoriesErrorActions {
 }
 
 interface ISetQuestionAmountActions {
-    type: MainActionTypes.SET_QUESTION_AMOUNT;
-    payload: IQuestionCount
-  }
-  interface IChangeQuestionAmountActions {
-    type: MainActionTypes.CHANGE_QUESTION_AMOUNT;
-    payload: string
-  }
+  type: MainActionTypes.SET_QUESTION_AMOUNT;
+  payload: IQuestionCount;
+}
+interface IChangeQuestionAmountActions {
+  type: MainActionTypes.CHANGE_QUESTION_AMOUNT;
+  payload: string;
+}
 
 export type MainActions =
   | ISetCategoriesActions
@@ -86,4 +86,4 @@ export type MainActions =
   | IShowCategoriesloaderActions
   | IShowCategoriesErrorActions
   | ISetQuestionAmountActions
-  | IChangeQuestionAmountActions
+  | IChangeQuestionAmountActions;

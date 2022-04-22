@@ -1,75 +1,75 @@
 .mainpage__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 59px);
 }
 
 .settings-form {
-    min-width: 280px;
-    max-width: 400px;
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 2px #000000;
-    label {
-        font-size: 22px;
-    color: #2264AB;
+  min-width: 280px;
+  max-width: 400px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 2px #000000;
+  label {
+    font-size: 22px;
+    color: #2264ab;
     font-weight: 700;
-    }
-    input {
-        width: 100%;
-    border: 2px solid #2264AB;
+  }
+  input {
+    width: 100%;
+    border: 2px solid #2264ab;
     border-radius: 5px;
-    color: #2264AB;
+    color: #2264ab;
     padding: 5px;
-    }
+  }
 }
 .mainpage__title {
-    font-size: 38px;
-    margin-bottom: 40px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
+  font-size: 38px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
 }
 .select {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .select__input {
-    width: 100%;
-    border: 2px solid #2264AB;
-    border-radius: 5px;
-    color: #2264AB;
-    padding: 5px;
+  width: 100%;
+  border: 2px solid #2264ab;
+  border-radius: 5px;
+  color: #2264ab;
+  padding: 5px;
 }
 .sttings__input {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 15px;
 }
 
 .settings-form__submit {
-    width: 100%;
-    border: none;
-    background: #2264AB;
-    padding: 5px;
-    border-radius: 5px;
-    color: #ffffff;
-    font-size: 22px;
-    transition: 0.4s;
-    &:hover {
-        background: #2b48ec;
-    }
+  width: 100%;
+  border: none;
+  background: #2264ab;
+  padding: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 22px;
+  transition: 0.4s;
+  &:hover {
+    background: #2b48ec;
+  }
 }

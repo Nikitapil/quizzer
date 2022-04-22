@@ -1,0 +1,35 @@
+.errorpage__container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.errorpage__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.errorpage__404 {
+  font-size: 150px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.errorpage__home-btn {
+  border: 2px solid #2264ab;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  color: #2264ab;
+  font-size: 28px;
+  transition: 0.4s;
+  margin-top: 10px;
+  &:hover {
+    background: #c3dffc;
+  }
+}
+.loader__container {
+  display: flex;
+  padding: 60px 20px;
+  justify-content: center;
+  align-items: center;
+}

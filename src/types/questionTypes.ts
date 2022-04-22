@@ -12,6 +12,12 @@ export interface IQuestion {
   incorrect_answers: string[];
 }
 
+export interface IQuizData {
+  quizeName: string;
+  isPrivate: boolean;
+  questions: IQuestion[];
+}
+
 export interface IQuestionState {
   questions: IQuestion[];
   score: number;

@@ -1,0 +1,252 @@
+.profile__nav {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  justify-content: center;
+}
+.nav-profile__btn {
+  background: none;
+  border: none;
+  color: #ffebcd;
+  transition: 0.4s;
+  text-decoration: none;
+  position: relative;
+  padding-right: 8px;
+  &:hover {
+    color: #ff0000;
+  }
+  &:not(.without-dash)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #ffebcd;
+  }
+}
+.nav-profile__btn-active {
+  color: #0eff01;
+}
+.info-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding-top: 20px;
+}
+.info-form__input {
+  border: 2px solid #2264ab;
+  border-radius: 5px;
+  color: #2264ab;
+  padding: 5px;
+}
+
+.info-form__submit-btn {
+  border: none;
+  background: #2264ab;
+  padding: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  transition: 0.4s;
+  &:hover {
+    background: #2b48ec;
+  }
+}
+
+.create-form {
+  min-width: 280px;
+  max-width: 400px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 2px #000000;
+  label {
+    font-size: 22px;
+    color: #2264ab;
+    font-weight: 700;
+    align-self: flex-start;
+  }
+  input {
+    width: 100%;
+    border: 2px solid #2264ab;
+    border-radius: 5px;
+    color: #2264ab;
+    padding: 5px;
+  }
+}
+.create-form__wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+}
+.question-field {
+  width: 100%;
+  padding: 5px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  legend {
+    color: #363a36;
+    font-weight: 700;
+  }
+}
+.question-field-add {
+  border: 2px solid #2264ab;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  color: #2264ab;
+  font-size: 16px;
+  transition: 0.4s;
+  margin-top: 10px;
+  margin-left: auto;
+  &:hover {
+    background: #c3dffc;
+  }
+}
+.add-question {
+  width: 80%;
+  margin: 0 auto;
+}
+.create-form_submit {
+  width: 100%;
+  border: none;
+  background: #2264ab;
+  padding: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 22px;
+  transition: 0.4s;
+  &:hover {
+    background: #2b48ec;
+  }
+}
+
+.user-quizes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+}
+.user-quizes__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.user-quizes__list {
+  width: 100%;
+}
+
+.user-quizes__item {
+  border: 2px solid #0eff01;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #faefde;
+  color: #2264ab;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.user-quizes__item-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  @media (max-width: 450px) {
+    justify-content: center;
+    text-align: center;
+  }
+}
+.user-quizes__item-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.user-quizes__item-amount {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.user-quizes__item-link {
+  font-style: italic;
+}
+.user-quizes__item-btns {
+  display: flex;
+  gap: 10px;
+}
+.create-form__privacy {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  label {
+    width: fit-content;
+  }
+  input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+.user-quizes__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  .user-quizes__title {
+    font-size: 28px;
+  }
+  .user-quizes__link {
+    color: #9af7ff;
+    font-size: 18px;
+  }
+}
+.all-quizes {
+  padding: 20px 20px;
+}
+.all-quizes__notice {
+  margin-bottom: 20px;
+}
+.question-field-del {
+  background: #ffffff;
+  border: none;
+  padding: 2px;
+  color: #2264ab;
+  font-size: 22px;
+  transition: 0.4s;
+  position: absolute;
+  top: -7px;
+  right: 5px;
+  &:hover {
+    font-size: 24px;
+  }
+}
+.wrong-answer__input {
+  width: 100%;
+}
+.wrong-answer__input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wrong-answer__dell {
+  background: #ffffff;
+  border: none;
+  padding: 2px;
+  color: #2264ab;
+  font-size: 16px;
+  transition: 0.4s;
+  &:hover {
+    font-size: 18px;
+  }
+}

@@ -23,7 +23,7 @@ export const questionReducer = (
     case QuestionActionsTypes.SCORE_INCREMENT:
       return { ...state, score: action.payload };
     case QuestionActionsTypes.SET_QUESTION_ERROR:
-      return { ...state, questionError: !state.questionError};
+      return { ...state, questionError: !state.questionError };
     default:
       return state;
   }
