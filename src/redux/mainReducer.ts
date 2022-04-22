@@ -3,10 +3,10 @@ import { MainActions } from "../types/mainTypes";
 
 const initialState: IMainState = {
   categories: [],
-  questionCategory: '0',
+  questionCategory: "0",
   questionDificulty: "",
   questionType: "",
-  questionsAmount: '10',
+  questionsAmount: "10",
   categoriesLoading: false,
   categoriesError: false,
   categoryQuestionCount: {
@@ -33,8 +33,8 @@ export const mainReducer = (state = initialState, action: MainActions) => {
       return { ...state, categoriesError: !state.categoriesError };
     case MainActionTypes.SET_QUESTION_AMOUNT:
       return { ...state, categoryQuestionCount: action.payload };
-      case MainActionTypes.CHANGE_QUESTION_AMOUNT:
-        return { ...state, questionsAmount: action.payload };
+    case MainActionTypes.CHANGE_QUESTION_AMOUNT:
+      return { ...state, questionsAmount: action.payload };
     default:
       return state;
   }

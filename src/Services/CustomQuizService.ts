@@ -1,12 +1,5 @@
 import { getAuth } from "firebase/auth";
-import {
-  child,
-  get,
-  getDatabase,
-  push,
-  ref,
-  set,
-} from "firebase/database";
+import { child, get, getDatabase, push, ref, set } from "firebase/database";
 import { IQuizData } from "../types/questionTypes";
 
 export default class CustomQuizService {
@@ -67,6 +60,26 @@ export default class CustomQuizService {
       const database = getDatabase();
       await set(ref(database, `/allQuizes/${quizId}`), null);
       await set(ref(database, `/users/${uid}/quizes/${idUserQuiz}`), null);
+    }
+  }
+
+  static async editQuiz(
+    quizId: string,
+    idUserQuiz: string,
+    quizData: IQuizData
+  ) {
+    const auth = getAuth();
+    if (auth.currentUser) {
+      try {
+        const uid = auth.currentUser.uid;
+        const database = getDatabase();
+        await set(ref(database, `/allQuizes/${quizId}`), quizData);
+        const userData = { ...quizData, id: quizId };
+        await set(
+          ref(database, `/users/${uid}/quizes/${idUserQuiz}`),
+          userData
+        );
+      } catch (error) {}
     }
   }
 }

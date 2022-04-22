@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import CustomQuizService from "../../Services/CustomQuizService";
 import { CreateFormItem } from "../CreateFormItem";
+import { Message } from "../UI/Message";
 
 export const CreateQuiz = () => {
+  const [message, setMessge] = useState({
+    text: '',
+    className: ''
+  })
   const [quizData, setQuizData] = useState({
     quizeName: "",
     isPrivate: false,
@@ -146,8 +151,23 @@ export const CreateQuiz = () => {
               },
             ],
           })
-      } catch (error) {
-          console.error(error);
+          setMessge({
+            text: 'Quiz created',
+            className: 'success-message'
+          })
+      } catch (error: any) {
+        setMessge({
+          text: error,
+          className: 'error-message'
+        })
+      }
+      finally {
+        setTimeout(() => {
+          setMessge({
+            text: '',
+            className: ''
+          })
+        }, 3500)
       }
   }
 
@@ -182,6 +202,7 @@ export const CreateQuiz = () => {
         <button type="button" className="question-field-add add-question" onClick={onAddQuestion}>Add Question</button>
         <button type="submit" className="create-form_submit">Create quiz</button>
       </form>
+      {message.text && <Message className={message.className} message={message.text}/>}
     </div>
   );
 };

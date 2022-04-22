@@ -24,7 +24,7 @@ const auth = getAuth(app);
 function App() {
   const [user, loading, error] = useAuthState(auth);
   const dispatch = useDispatch();
-  const {userId} = useTypedSelector((state) => state.user)
+  const { userId } = useTypedSelector((state) => state.user);
   useEffect(() => {
     const uid = user?.uid || null;
     dispatch(getUserId(uid));
@@ -38,12 +38,14 @@ function App() {
         <Route path="/questions" element={<QuestionPage />} />
         <Route path="/finalpage" element={<FinalPage />} />
         <Route path="/customquizes" element={<AllQuizes />} />
-        {userId && <Route path="/profile" element={<Profile />}>
-          <Route path="info" element={<Info />} />
-          <Route path="create" element={<CreateQuiz />} />
-          <Route path="userquizes" element={<UserQuizes />} />
-        </Route>}
-        <Route path="*" element={<ErrorPage isLoading={loading}/>}/>
+        {userId && (
+          <Route path="/profile" element={<Profile />}>
+            <Route path="info" element={<Info />} />
+            <Route path="create" element={<CreateQuiz />} />
+            <Route path="userquizes" element={<UserQuizes />} />
+          </Route>
+        )}
+        <Route path="*" element={<ErrorPage isLoading={loading} />} />
       </Routes>
     </div>
   );
