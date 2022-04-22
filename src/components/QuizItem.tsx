@@ -50,7 +50,7 @@ export const QuizItem: FC<QuizItemProps> = ({
             Questions amount: {quiz.questions.length}
           </p>
           {isShowLink && (
-            <p className="user-quizes__item-link">{`${window.location.origin.toString()}/questions?${
+            <p className="user-quizes__item-link">{`${window.location.origin.toString()}/quizzer/questions?${
               quiz.id
             }`}</p>
           )}
