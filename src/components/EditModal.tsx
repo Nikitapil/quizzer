@@ -143,7 +143,7 @@ export const EditModal: FC<EditModalProps> = ({
     });
   };
   return (
-    <form className="create-form" onSubmit={onSubmit}>
+    <form className="create-form" onSubmit={onSubmit} data-testid="edit-modal">
       <label htmlFor="quiz-name">Quiz name:</label>
       <input
         autoComplete="off"
@@ -153,6 +153,7 @@ export const EditModal: FC<EditModalProps> = ({
         placeholder="Quiz name..."
         value={quizData.quizeName}
         onChange={onChangeQuizName}
+        data-testid="quiz-name-input"
       />
       <div className="create-form__privacy">
         <label htmlFor="privacy-control">Is Private Quiz?</label>
@@ -186,10 +187,11 @@ export const EditModal: FC<EditModalProps> = ({
         type="button"
         className="question-field-add add-question"
         onClick={onAddQuestion}
+        data-testid='add-question-btn'
       >
         Add Question
       </button>
-      <button type="submit" className="create-form_submit">
+      <button type="submit" className="create-form_submit" data-testid='edit-submit'>
         Edit!
       </button>
     </form>

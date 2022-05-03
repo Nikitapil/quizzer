@@ -25,7 +25,7 @@ export interface IAuthData {
   name?: string;
 }
 
-interface IGetUserId {
+export interface IGetUserId {
   type: UserActionstypes.GET_USER_ID;
   payload: string | null;
 }

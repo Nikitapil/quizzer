@@ -50,7 +50,7 @@ export const QuizItem: FC<QuizItemProps> = ({
             Questions amount: {quiz.questions.length}
           </p>
           {isShowLink && (
-            <p className="user-quizes__item-link">{`${window.location.origin.toString()}/quizzer/questions?${
+            <p className="user-quizes__item-link" data-testid='quiz-link'>{`${window.location.origin.toString()}/quizzer/questions?${
               quiz.id
             }`}</p>
           )}
@@ -59,10 +59,11 @@ export const QuizItem: FC<QuizItemProps> = ({
           <button
             className="question-field-add"
             onClick={() => navigate(`/questions?${quiz.id}`)}
+            data-testid='play-btn'
           >
             Play <FontAwesomeIcon icon={faPlay} />
           </button>
-          <button className="question-field-add" onClick={changeLinkState}>
+          <button className="question-field-add" onClick={changeLinkState} data-testid='open-link-btn'>
             Get link <FontAwesomeIcon icon={faLink} />
           </button>
           {isUser && (
@@ -70,6 +71,7 @@ export const QuizItem: FC<QuizItemProps> = ({
               className="question-field-add"
               title="Edit"
               onClick={openEdit}
+              data-testid='edit-btn'
             >
               {" "}
               <FontAwesomeIcon icon={faPencil} />
@@ -80,6 +82,7 @@ export const QuizItem: FC<QuizItemProps> = ({
               className="question-field-add"
               title="Delete"
               onClick={deleteQuiz}
+              data-testid='quiz-del-btn'
             >
               {" "}
               <FontAwesomeIcon icon={faTrashCan} />

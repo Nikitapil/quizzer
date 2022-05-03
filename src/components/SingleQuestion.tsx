@@ -59,6 +59,7 @@ export const SingleQuestion: FC<SingleQuestionProps> = ({
               onClick={() => checkAnswer(answer)}
               className={`single-question__anwers-item ${getClass(answer)}`}
               key={answer}
+              data-testid='answer-item'
             >
               {decodeHTML(answer)}
             </li>

@@ -42,7 +42,7 @@ export const SignUpModal: FC<SignUpModalProps> = ({ closeModal }) => {
   };
 
   return (
-    <form className="sign-modal" onSubmit={submitHandler}>
+    <form className="sign-modal" onSubmit={submitHandler} data-testid='sign-up-modal'>
       <label htmlFor="email">Email:</label>
       <input
         id="email"
@@ -50,6 +50,7 @@ export const SignUpModal: FC<SignUpModalProps> = ({ closeModal }) => {
         placeholder="Enter email"
         value={signUpData.email}
         onChange={onInput}
+        data-testid='email-input'
       />
       <label htmlFor="password">Password:</label>
       <input
@@ -66,6 +67,7 @@ export const SignUpModal: FC<SignUpModalProps> = ({ closeModal }) => {
         placeholder="Enter your name"
         value={signUpData.name}
         onChange={onInput}
+        data-testid='name-input'
       />
       <div className="sign-modal__btns">
         <button
@@ -76,7 +78,7 @@ export const SignUpModal: FC<SignUpModalProps> = ({ closeModal }) => {
         >
           Cancel
         </button>
-        <button type="submit" className="sign-submit-btn" disabled={loading}>
+        <button type="submit" className="sign-submit-btn" disabled={loading} data-testid='sign-up-btn'>
           Sign Up
         </button>
       </div>

@@ -65,7 +65,7 @@ export const UserQuizes = () => {
 
   if (!quizLoading && !userQuizes.length) {
     return (
-      <div className="user-quizes__empty">
+      <div className="user-quizes__empty" data-testid = 'userquizes-page'>
         <h1 className="user-quizes__title">There is no any quizes yet</h1>
         <Link to={"/profile/create"} className="user-quizes__link">
           Create first
@@ -74,7 +74,7 @@ export const UserQuizes = () => {
     );
   }
   return (
-    <div className="user-quizes">
+    <div className="user-quizes" data-testid = 'userquizes-page'>
       <h1 className="user-quizes__title">Your Quizes</h1>
       {quizLoading && <Loader />}
       <ul className="user-quizes__list">

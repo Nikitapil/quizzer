@@ -7,5 +7,5 @@ interface MessageProps {
 }
 
 export const Message: FC<MessageProps> = ({ message, className }) => {
-  return <div className={className}>{message}</div>;
+  return <div className={className} data-testid='message'>{message}</div>;
 };

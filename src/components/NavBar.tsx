@@ -43,6 +43,7 @@ export const NavBar: FC = () => {
           <ul className="nav-bar__list" onClick={(e) => e.stopPropagation()}>
             <li onClick={() => setIsMobileMenuActive(false)}>
               <NavLink
+                data-testid='main-link'
                 to={"/"}
                 className={({ isActive }) =>
                   isActive ? "nav-bar__btn nav-bar__btn-active" : "nav-bar__btn "
@@ -53,6 +54,7 @@ export const NavBar: FC = () => {
             </li>
             <li onClick={() => setIsMobileMenuActive(false)}>
               <NavLink
+                data-testid='customquizes-link'
                 to={"/customquizes"}
                 className={({ isActive }) =>
                   isActive ? "nav-bar__btn nav-bar__btn-active" : "nav-bar__btn "
@@ -63,14 +65,14 @@ export const NavBar: FC = () => {
             </li>
             {!userId && (
               <li onClick={() => setIsMobileMenuActive(false)}>
-                <button onClick={changeSignInModalState} className="nav-bar__btn">
+                <button  data-testid='signin-link' onClick={changeSignInModalState} className="nav-bar__btn">
                   Sign in
                 </button>
               </li>
             )}
             {!userId && (
               <li onClick={() => setIsMobileMenuActive(false)}>
-                <button onClick={changeSignUpModalState} className="nav-bar__btn">
+                <button data-testid='signup-link' onClick={changeSignUpModalState} className="nav-bar__btn">
                   Sign up
                 </button>
               </li>
@@ -78,6 +80,7 @@ export const NavBar: FC = () => {
             {userId && (
               <li onClick={() => setIsMobileMenuActive(false)}>
                 <NavLink
+                  data-testid='profile-link'
                   to={"/profile/info"}
                   className={({ isActive }) =>
                     isActive
@@ -91,7 +94,7 @@ export const NavBar: FC = () => {
             )}
             {userId && (
               <li onClick={() => setIsMobileMenuActive(false)}>
-                <button className="nav-bar__btn" onClick={logout}>
+                <button data-testid='signout-link' className="nav-bar__btn" onClick={logout}>
                   Sign out
                 </button>
               </li>

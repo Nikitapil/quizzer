@@ -34,19 +34,22 @@ export const SignInModal: FC<SignInModalProps> = ({ closeModal }) => {
   };
 
   return (
-    <form className="sign-modal" onSubmit={submitHandler}>
+    <form className="sign-modal" onSubmit={submitHandler} data-testid='sign-in-modal'>
       <label htmlFor="email">Email:</label>
       <input
         id="email"
         type="email"
         placeholder="Enter email"
         onChange={onInput}
+        value={signInData.email}
+        data-testid='email-input'
       />
       <label htmlFor="password">Password:</label>
       <input
         id="password"
         type="password"
         placeholder="Enter password"
+        value={signInData.password}
         onChange={onInput}
       />
       <div className="sign-modal__btns">
@@ -58,7 +61,7 @@ export const SignInModal: FC<SignInModalProps> = ({ closeModal }) => {
         >
           Cancel
         </button>
-        <button disabled={loading} type="submit" className="sign-submit-btn">
+        <button disabled={loading} type="submit" className="sign-submit-btn" data-testid='sign-in-btn'>
           Sign In
         </button>
       </div>

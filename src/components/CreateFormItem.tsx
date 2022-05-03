@@ -37,12 +37,13 @@ export const CreateFormItem: FC<ICreateFormItem> = ({
   };
 
   return (
-    <fieldset className="question-field">
+    <fieldset className="question-field" data-testid='create-form-item'>
       {index > 2 && (
         <button
           type="button"
           className="question-field-del"
           onClick={deleteQuestion}
+          data-testid="question-del-btn"
         >
           <FontAwesomeIcon icon={faXmark} />
         </button>
@@ -56,6 +57,7 @@ export const CreateFormItem: FC<ICreateFormItem> = ({
         type="text"
         value={question}
         onChange={(e) => onChangeQuestion(e.target.value)}
+        data-testid='question-input'
       />
       <label htmlFor="right-answer">Right Answer:</label>
       <input
@@ -65,6 +67,7 @@ export const CreateFormItem: FC<ICreateFormItem> = ({
         type="text"
         value={rightAnswer}
         onChange={(e) => onChangeRightAnswer(e.target.value)}
+        data-testid='right-answer-input'
       />
       {wrongAnswers.map((answ, Windex) => {
         return (
@@ -82,6 +85,7 @@ export const CreateFormItem: FC<ICreateFormItem> = ({
           type="button"
           className="question-field-add"
           onClick={onAddItem}
+          data-testid='add-wrong-item'
         >
           Add Answer
         </button>

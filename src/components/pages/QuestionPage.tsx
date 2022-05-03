@@ -55,14 +55,14 @@ export const QuestionPage: FC = () => {
   };
   if (questionError) {
     return (
-      <div className="error">
+      <div className="error" data-testid='question-page'>
         Oops! Couldn't load questions, try reload the page or{" "}
         <Link to="/">Go back</Link>
       </div>
     );
   }
   return (
-    <main className="question__container container">
+    <main className="question__container container" data-testid='question-page'>
       <button className="question__reset" onClick={goToMain}>
         Go to Main
       </button>

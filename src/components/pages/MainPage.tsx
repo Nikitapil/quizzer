@@ -62,6 +62,7 @@ export const MainPage: FC = () => {
           disabled={categoriesLoading}
           type="submit"
           className="settings-form__submit"
+          data-testid='open-questions'
         >
           Get Started
         </button>

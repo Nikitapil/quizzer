@@ -172,7 +172,7 @@ export const CreateQuiz = () => {
   }
 
   return (
-    <div className="create-form__wrapper">
+    <div className="create-form__wrapper" data-testid='create-page'>
       <form className="create-form" onSubmit={submitHandler}>
         <label htmlFor="quiz-name">Quiz name:</label>
         <input autoComplete="off" required id="quiz-name" type="text" placeholder="Quiz name..." value={quizData.quizeName} onChange={onChangeQuizName} />

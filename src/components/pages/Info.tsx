@@ -35,7 +35,7 @@ export const Info = () => {
   };
 
   return (
-    <form className="info-form" onSubmit={submitHandler}>
+    <form className="info-form" onSubmit={submitHandler} data-testid='info-page'>
       <label htmlFor="name">Your name: </label>
       <input
         id="name"

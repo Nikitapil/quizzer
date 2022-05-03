@@ -20,7 +20,7 @@ export const WrongAnswer: FC<WrongAnswerProps> = ({
   };
 
   return (
-    <div>
+    <div data-testid='wrong-answer'>
       <label htmlFor={`wrong-answer_${index}`}>Wrong Answer {index + 1}:</label>
       <div className="wrong-answer__input">
         <input
@@ -30,12 +30,14 @@ export const WrongAnswer: FC<WrongAnswerProps> = ({
           type="text"
           value={value}
           onChange={(e) => onChangeValue(e.target.value)}
+          data-testid='wrong-answer-input'
         />
         {index !== 0 && (
           <button
             type="button"
             className="wrong-answer__dell"
             onClick={deleteAnswer}
+            data-testid='delete-answer-btn'
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
